@@ -1,15 +1,9 @@
+---
 name: Issue Description
-description: Describe your issue clearly
-title: "New Issue"
+about: Create a new issue
+title: ""
 labels: []
-assignees: []
+assignees: ""
+---
 
-body:
-  - type: markdown
-    attributes:
-      value: "**Issue Description**"
-  - type: textarea
-    attributes:
-      label: "Details"
-      description: "Type your issue details here. You can paste images below."
-      placeholder: "Describe the problem..."
+# Issue Description
