@@ -2,6 +2,7 @@ name: Auto Reply Bot
 
 permissions:
   issues: write
+  contents: read
 
 on:
   issues:
@@ -17,9 +18,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
-
-      - name: Upgrade pip
-        run: pip install --upgrade pip
+          cache: 'pip' # Speeds up the bot by saving your packages
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -27,4 +26,4 @@ jobs:
       - name: Run bot
         run: python bot.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
