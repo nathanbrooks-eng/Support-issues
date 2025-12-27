@@ -1,9 +1,7 @@
 ---
-name: Issue
-about: Create a new issue
+name: Issue Description
+about: Describe your issue clearly
 title: ""
 labels: []
 assignees: ""
 ---
-
-**Issue Description**
